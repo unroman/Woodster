@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_chiseled_bookshelf",
+  "key": {
+    "#": {
+      "item": "minecraft:oak_planks"
+    },
+    "X": {
+      "item": "minecraft:oak_slab"
+    }
+  },
+  "pattern": [
+    "###",
+    "XXX",
+    "###"
+  ],
+  "result": {
+    "item": "woodster:oak_chiseled_bookshelf"
+  },
+  "show_notification": true
+}
