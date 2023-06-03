@@ -1,0 +1,109 @@
+{
+  "variants": {
+    "facing=north,books=0": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_0"
+    },
+    "facing=north,books=1": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_1"
+    },
+    "facing=north,books=2": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_2"
+    },
+    "facing=north,books=3": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_3"
+    },
+    "facing=north,books=4": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_4"
+    },
+    "facing=north,books=5": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_5"
+    },
+    "facing=north,books=6": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_6"
+    },
+    "facing=east,books=0": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_0",
+      "y": 90
+    },
+    "facing=east,books=1": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_1",
+      "y": 90
+    },
+    "facing=east,books=2": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_2",
+      "y": 90
+    },
+    "facing=east,books=3": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_3",
+      "y": 90
+    },
+    "facing=east,books=4": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_4",
+      "y": 90
+    },
+    "facing=east,books=5": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_5",
+      "y": 90
+    },
+    "facing=east,books=6": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_6",
+      "y": 90
+    },
+    "facing=south,books=0": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_0",
+      "y": 180
+    },
+    "facing=south,books=1": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_1",
+      "y": 180
+    },
+    "facing=south,books=2": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_2",
+      "y": 180
+    },
+    "facing=south,books=3": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_3",
+      "y": 180
+    },
+    "facing=south,books=4": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_4",
+      "y": 180
+    },
+    "facing=south,books=5": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_5",
+      "y": 180
+    },
+    "facing=south,books=6": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_6",
+      "y": 180
+    },
+    "facing=west,books=0": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_0",
+      "y": 270
+    },
+    "facing=west,books=1": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_1",
+      "y": 270
+    },
+    "facing=west,books=2": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_2",
+      "y": 270
+    },
+    "facing=west,books=3": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_3",
+      "y": 270
+    },
+    "facing=west,books=4": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_4",
+      "y": 270
+    },
+    "facing=west,books=5": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_5",
+      "y": 270
+    },
+    "facing=west,books=6": {
+      "model": "woodster:block/spruce_chiseled_bookshelf_6",
+      "y": 270
+    }
+  }
+}
