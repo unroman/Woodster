@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.Block;
 
 public class WoodsterBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, WoodsterMod.MODID);
-	
+
 	public static final RegistryObject<Block> OAK_CHISELED_BOOKSHELF = REGISTRY.register("oak_chiseled_bookshelf", () -> new ChiseledBookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> SPRUCE_CHISELED_BOOKSHELF = REGISTRY.register("spruce_chiseled_bookshelf", () -> new ChiseledBookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> BIRCH_CHISELED_BOOKSHELF = REGISTRY.register("birch_chiseled_bookshelf", () -> new ChiseledBookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
@@ -25,7 +25,7 @@ public class WoodsterBlocks {
 	public static final RegistryObject<Block> MANGROVE_CHISELED_BOOKSHELF = REGISTRY.register("mangrove_chiseled_bookshelf", () -> new ChiseledBookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> CRIMSON_CHISELED_BOOKSHELF = REGISTRY.register("crimson_chiseled_bookshelf", () -> new ChiseledBookshelfBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> WARPED_CHISELED_BOOKSHELF = REGISTRY.register("warped_chiseled_bookshelf", () -> new ChiseledBookshelfBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD).strength(1.5F).sound(SoundType.WOOD)));
-	
+
 	public static final RegistryObject<Block> SPRUCE_BOOKSHELF = REGISTRY.register("spruce_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> BIRCH_BOOKSHELF = REGISTRY.register("birch_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> JUNGLE_BOOKSHELF = REGISTRY.register("jungle_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
@@ -34,7 +34,7 @@ public class WoodsterBlocks {
 	public static final RegistryObject<Block> MANGROVE_BOOKSHELF = REGISTRY.register("mangrove_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> CRIMSON_BOOKSHELF = REGISTRY.register("crimson_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD).strength(1.5F).sound(SoundType.WOOD)));
 	public static final RegistryObject<Block> WARPED_BOOKSHELF = REGISTRY.register("warped_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD).strength(1.5F).sound(SoundType.WOOD)));
-	
+
 	public static final RegistryObject<Block> SPRUCE_LADDER = REGISTRY.register("spruce_ladder", () -> new LadderBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
 	public static final RegistryObject<Block> BIRCH_LADDER = REGISTRY.register("birch_ladder", () -> new LadderBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
 	public static final RegistryObject<Block> JUNGLE_LADDER = REGISTRY.register("jungle_ladder", () -> new LadderBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
