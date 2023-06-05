@@ -1,7 +1,6 @@
 {
   "itemGroup.woodster": "Woodster",
   "block.woodster.oak_chiseled_bookshelf": "Oak Chiseled Bookshelf",
-  "gui.woodster.bookshelf": "Chiseled Bookshelf",
   "block.woodster.dark_oak_chiseled_bookshelf": "Dark Oak Chiseled Bookshelf",
   "block.woodster.warped_bookshelf": "Warped Bookshelf",
   "block.woodster.spruce_bookshelf": "Spruce Bookshelf",
@@ -20,6 +19,7 @@
   "block_type.woodster.chiseled_bookshelf": "%s Chiseled Bookshelf",
   "block.woodster.warped_chiseled_bookshelf": "Warped Chiseled Bookshelf",
   "block.woodster.birch_bookshelf": "Birch Bookshelf",
+  "gui.woodster.bookshelf_inventory.label_chiseled_bookshelf": "Chiseled Bookshelf",
   "block_type.woodster.ladder": "%s Ladder",
   "block.woodster.birch_ladder": "Birch Ladder",
   "block.woodster.acacia_bookshelf": "Acacia Bookshelf",
