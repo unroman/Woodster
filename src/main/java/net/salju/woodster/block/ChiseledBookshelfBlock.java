@@ -1,10 +1,7 @@
 package net.salju.woodster.block;
 
-import net.salju.woodster.world.inventory.BookshelfInventoryMenu;
 import net.salju.woodster.init.WoodsterBlockProperties;
 import net.salju.woodster.block.entity.ChiseledBookshelfBlockEntity;
-
-import net.minecraftforge.network.NetworkHooks;
 
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -26,20 +23,15 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.Containers;
 import net.minecraft.util.RandomSource;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-
-import io.netty.buffer.Unpooled;
 
 public class ChiseledBookshelfBlock extends BaseEntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -69,18 +61,10 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 	@Override
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		super.use(state, world, pos, player, hand, hit);
-		if (player instanceof ServerPlayer ply) {
-			NetworkHooks.openScreen(ply, new MenuProvider() {
-				@Override
-				public Component getDisplayName() {
-					return Component.translatable("gui.woodster.bookshelf");
-				}
-
-				@Override
-				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-					return new BookshelfInventoryMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(pos));
-				}
-			}, pos);
+		BlockEntity target = world.getBlockEntity(pos);
+		if (target instanceof ChiseledBookshelfBlockEntity be) {
+			player.openMenu(be);
+			be.startOpen(player);
 		}
 		return InteractionResult.SUCCESS;
 	}
@@ -89,6 +73,16 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 	public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(state, world, pos, oldState, moving);
 		world.scheduleTick(pos, this, 5);
+	}
+
+	@Override
+	public void setPlacedBy(Level world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+		if (stack.hasCustomHoverName()) {
+			BlockEntity target = world.getBlockEntity(pos);
+			if (target instanceof ChiseledBookshelfBlockEntity be) {
+				be.setCustomName(stack.getHoverName());
+			}
+		}
 	}
 
 	@Override
@@ -111,6 +105,22 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 		}
 		world.updateNeighbourForOutputSignal(pos, this);
 		world.scheduleTick(pos, this, 5);
+	}
+
+	@Override
+	public boolean hasAnalogOutputSignal(BlockState state) {
+		return true;
+	}
+
+	@Override
+	public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos) {
+		BlockEntity target = world.getBlockEntity(pos);
+		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(target);
+	}
+
+	@Override
+	public MenuProvider getMenuProvider(BlockState state, Level world, BlockPos pos) {
+		return world.getBlockEntity(pos) instanceof MenuProvider menuProvider ? menuProvider : null;
 	}
 
 	@Override
@@ -155,8 +165,8 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 
 	public static int getBooks(BlockEntity target) {
 		int books = 0;
-		if (target instanceof ChiseledBookshelfBlockEntity bookshelf) {
-			for (ItemStack stack : bookshelf.stacks) {
+		if (target instanceof ChiseledBookshelfBlockEntity be) {
+			for (ItemStack stack : be.stacks) {
 				if (!stack.isEmpty()) {
 					books = (books + 1);
 				}

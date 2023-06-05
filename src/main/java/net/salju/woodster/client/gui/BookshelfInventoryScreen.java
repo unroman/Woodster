@@ -67,7 +67,7 @@ public class BookshelfInventoryScreen extends AbstractContainerScreen<BookshelfI
 
 	@Override
 	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, Component.translatable("gui.woodster.bookshelf"), 6, 5, -12829636);
+		this.font.draw(poseStack, Component.translatable("gui.woodster.bookshelf_inventory.label_chiseled_bookshelf"), 6, 5, -12829636);
 	}
 
 	@Override
@@ -81,4 +81,4 @@ public class BookshelfInventoryScreen extends AbstractContainerScreen<BookshelfI
 		super.init();
 		this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
 	}
-}
+}

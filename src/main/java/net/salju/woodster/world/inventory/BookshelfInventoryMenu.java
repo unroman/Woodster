@@ -1,9 +1,8 @@
-package net.salju.woodster.world.inventory;
+
+package net.salju.woodster.world.inventory;
 
 import net.salju.woodster.init.WoodsterModMenus;
-import net.salju.woodster.block.entity.ChiseledBookshelfBlockEntity;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -18,7 +17,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
@@ -50,11 +48,6 @@ public class BookshelfInventoryMenu extends AbstractContainerMenu implements Sup
 			this.z = pos.getZ();
 		}
 		if (pos != null) {
-			if (!world.isClientSide()) {
-				world.playSound(null, pos, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.book.put")), SoundSource.NEUTRAL, 1, 1);
-			} else {
-				world.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.book.put")), SoundSource.NEUTRAL, 1, 1, false);
-			}
 			if (extraData.readableBytes() == 1) { // bound to item
 				byte hand = extraData.readByte();
 				ItemStack itemstack;
@@ -183,21 +176,128 @@ public class BookshelfInventoryMenu extends AbstractContainerMenu implements Sup
 	}
 
 	@Override
-	public void removed(Player player) {
-		super.removed(player);
-		BlockPos pos = new BlockPos(x, y, z);
-		BlockEntity target = world.getBlockEntity(pos);
-		if (target != null && target instanceof ChiseledBookshelfBlockEntity be) {
-			be.updateBlockState(target.getBlockState());
+	protected boolean moveItemStackTo(ItemStack p_38904_, int p_38905_, int p_38906_, boolean p_38907_) {
+		boolean flag = false;
+		int i = p_38905_;
+		if (p_38907_) {
+			i = p_38906_ - 1;
 		}
-		if (!bound && player instanceof ServerPlayer ply) {
-			if (!ply.isAlive() || ply.hasDisconnected()) {
+		if (p_38904_.isStackable()) {
+			while (!p_38904_.isEmpty()) {
+				if (p_38907_) {
+					if (i < p_38905_) {
+						break;
+					}
+				} else if (i >= p_38906_) {
+					break;
+				}
+				Slot slot = this.slots.get(i);
+				ItemStack itemstack = slot.getItem();
+				if (slot.mayPlace(itemstack) && !itemstack.isEmpty() && ItemStack.isSameItemSameTags(p_38904_, itemstack)) {
+					int j = itemstack.getCount() + p_38904_.getCount();
+					int maxSize = Math.min(slot.getMaxStackSize(), p_38904_.getMaxStackSize());
+					if (j <= maxSize) {
+						p_38904_.setCount(0);
+						itemstack.setCount(j);
+						slot.set(itemstack);
+						flag = true;
+					} else if (itemstack.getCount() < maxSize) {
+						p_38904_.shrink(maxSize - itemstack.getCount());
+						itemstack.setCount(maxSize);
+						slot.set(itemstack);
+						flag = true;
+					}
+				}
+				if (p_38907_) {
+					--i;
+				} else {
+					++i;
+				}
+			}
+		}
+		if (!p_38904_.isEmpty()) {
+			if (p_38907_) {
+				i = p_38906_ - 1;
+			} else {
+				i = p_38905_;
+			}
+			while (true) {
+				if (p_38907_) {
+					if (i < p_38905_) {
+						break;
+					}
+				} else if (i >= p_38906_) {
+					break;
+				}
+				Slot slot1 = this.slots.get(i);
+				ItemStack itemstack1 = slot1.getItem();
+				if (itemstack1.isEmpty() && slot1.mayPlace(p_38904_)) {
+					if (p_38904_.getCount() > slot1.getMaxStackSize()) {
+						slot1.set(p_38904_.split(slot1.getMaxStackSize()));
+					} else {
+						slot1.set(p_38904_.split(p_38904_.getCount()));
+					}
+					slot1.setChanged();
+					flag = true;
+					break;
+				}
+				if (p_38907_) {
+					--i;
+				} else {
+					++i;
+				}
+			}
+		}
+		return flag;
+	}
+
+	@Override
+	public void removed(Player playerIn) {
+		super.removed(playerIn);
+		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
+			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
-					player.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
+					if (j == 0)
+						continue;
+					if (j == 1)
+						continue;
+					if (j == 2)
+						continue;
+					if (j == 3)
+						continue;
+					if (j == 4)
+						continue;
+					if (j == 5)
+						continue;
+					if (j == 6)
+						continue;
+					if (j == 7)
+						continue;
+					if (j == 8)
+						continue;
+					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
-					player.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
+					if (i == 0)
+						continue;
+					if (i == 1)
+						continue;
+					if (i == 2)
+						continue;
+					if (i == 3)
+						continue;
+					if (i == 4)
+						continue;
+					if (i == 5)
+						continue;
+					if (i == 6)
+						continue;
+					if (i == 7)
+						continue;
+					if (i == 8)
+						continue;
+					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
 		}
@@ -206,4 +306,4 @@ public class BookshelfInventoryMenu extends AbstractContainerMenu implements Sup
 	public Map<Integer, Slot> get() {
 		return customSlots;
 	}
-}
+}
