@@ -140,7 +140,7 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 
 	@Override
 	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-		return true;
+		return state.getValue(FACING) == side;
 	}
 
 	@Override
@@ -149,10 +149,10 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getSignal(BlockState state, BlockGetter world, BlockPos pos, Direction direction) {
+	public int getSignal(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
 		BlockEntity target = world.getBlockEntity(pos);
 		int i = (this.getBooks(target));
-		return Integer.valueOf(Math.min(15, i * 2));
+		return state.getValue(FACING) == side ? Integer.valueOf(Math.min(15, i * 2)) : 0;
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
