@@ -1,14 +1,17 @@
 modLoader="javafml"
 loaderVersion="[43,)"
-license="Academic Free License v3.0"
+license="MIT License"
 
 [[mods]]
 modId="woodster"
-version="1.1.0"
+version="1.2.1"
 displayName="Woodster"
 credits="Jusey1, Burack"
 displayURL="https://discord.gg/s7QaYGUzZU"
 authors="Jusey1"
+description='''
+Books & Ladders
+'''
 
 [[dependencies.woodster]]
     modId="minecraft"
