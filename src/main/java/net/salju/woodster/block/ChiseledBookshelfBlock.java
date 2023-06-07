@@ -1,4 +1,5 @@
-package net.salju.woodster.block;
+
+package net.salju.woodster.block;
 
 import net.salju.woodster.init.WoodsterBlockProperties;
 import net.salju.woodster.block.entity.ChiseledBookshelfBlockEntity;
@@ -10,9 +11,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -21,10 +20,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.Containers;
@@ -61,12 +58,15 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 	@Override
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		super.use(state, world, pos, player, hand, hit);
-		BlockEntity target = world.getBlockEntity(pos);
-		if (target instanceof ChiseledBookshelfBlockEntity be) {
-			player.openMenu(be);
-			be.startOpen(player);
+		if (hit.getDirection() == state.getValue(FACING)) {
+			BlockEntity target = world.getBlockEntity(pos);
+			if (target instanceof ChiseledBookshelfBlockEntity be) {
+				player.openMenu(be);
+				be.startOpen(player);
+			}
+			return InteractionResult.SUCCESS;
 		}
-		return InteractionResult.SUCCESS;
+		return InteractionResult.PASS;
 	}
 
 	@Override
@@ -115,27 +115,11 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 	@Override
 	public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos) {
 		BlockEntity target = world.getBlockEntity(pos);
-		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(target);
-	}
-
-	@Override
-	public MenuProvider getMenuProvider(BlockState state, Level world, BlockPos pos) {
-		return world.getBlockEntity(pos) instanceof MenuProvider menuProvider ? menuProvider : null;
-	}
-
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new ChiseledBookshelfBlockEntity(pos, state);
-	}
-
-	@Override
-	public float getEnchantPowerBonus(BlockState state, LevelReader world, BlockPos pos) {
-		BlockEntity target = world.getBlockEntity(pos);
-		if (this.getBooks(target) >= 3) {
-			return 1f;
-		} else {
-			return 0f;
+		if (target instanceof ChiseledBookshelfBlockEntity be) {
+			int i = be.getLastSlot();
+			return Integer.valueOf(Math.min(15, i + 1));
 		}
+		return 0;
 	}
 
 	@Override
@@ -155,12 +139,15 @@ public class ChiseledBookshelfBlock extends BaseEntityBlock {
 		return state.getValue(FACING) == side ? Integer.valueOf(Math.min(15, i * 2)) : 0;
 	}
 
-	public BlockState rotate(BlockState state, Rotation rot) {
-		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new ChiseledBookshelfBlockEntity(pos, state);
 	}
 
-	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
+	@Override
+	public float getEnchantPowerBonus(BlockState state, LevelReader world, BlockPos pos) {
+		BlockEntity target = world.getBlockEntity(pos);
+		return (this.getBooks(target) >= 3) ? 1f : 0f;
 	}
 
 	public static int getBooks(BlockEntity target) {
