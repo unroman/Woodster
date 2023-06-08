@@ -13,7 +13,6 @@ public class WoodsterMod {
 
 	public WoodsterMod() {
 		MinecraftForge.EVENT_BUS.register(this);
-		WoodsterTabs.load();
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		WoodsterBlocks.REGISTRY.register(bus);
 		WoodsterItems.REGISTRY.register(bus);
