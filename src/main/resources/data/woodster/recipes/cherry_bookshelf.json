@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "wooden_chiseled_bookshelf",
+  "group": "wooden_bookshelf",
   "key": {
     "#": {
-      "item": "minecraft:warped_planks"
+      "item": "minecraft:cherry_planks"
     },
     "X": {
-      "item": "minecraft:warped_slab"
+      "item": "minecraft:book"
     }
   },
   "pattern": [
     "###",
-    "X X",
+    "XXX",
     "###"
   ],
   "result": {
-    "item": "woodster:warped_chiseled_bookshelf"
+    "item": "woodster:cherry_bookshelf"
   },
   "show_notification": true
 }

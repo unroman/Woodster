@@ -4,10 +4,10 @@
   "group": "wooden_chiseled_bookshelf",
   "key": {
     "#": {
-      "item": "minecraft:warped_planks"
+      "item": "minecraft:cherry_planks"
     },
     "X": {
-      "item": "minecraft:warped_slab"
+      "item": "minecraft:cherry_slab"
     }
   },
   "pattern": [
@@ -16,7 +16,7 @@
     "###"
   ],
   "result": {
-    "item": "woodster:warped_chiseled_bookshelf"
+    "item": "woodster:cherry_chiseled_bookshelf"
   },
   "show_notification": true
 }

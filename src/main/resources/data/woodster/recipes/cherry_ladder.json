@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_ladder",
+  "key": {
+    "W": {
+      "item": "minecraft:cherry_planks"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "# #",
+    "#W#",
+    "# #"
+  ],
+  "result": {
+    "count": 4,
+    "item": "woodster:cherry_ladder"
+  },
+  "show_notification": true
+}
