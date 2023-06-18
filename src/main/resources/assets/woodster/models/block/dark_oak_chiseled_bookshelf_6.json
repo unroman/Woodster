@@ -1,9 +1,0 @@
-{
-    "parent": "woodster:block/cube_bookshelf",
-    "textures": {
-        "top": "woodster:block/dark_oak_chiseled_bookshelf_top",
-        "side": "woodster:block/dark_oak_chiseled_bookshelf_side",
-        "front": "woodster:block/dark_oak_chiseled_bookshelf_6",
-        "particle": "#top"
-    }
-}
