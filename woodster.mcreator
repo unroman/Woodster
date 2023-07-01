@@ -1,49 +1,43 @@
 {
-  "mod_elements": [
-    {
-      "name": "BookshelfInventory",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "bookshelf_inventory",
-      "metadata": {
-        "files": [
-          "src/main/java/net/salju/woodster/client/gui/BookshelfInventoryScreen.java",
-          "src/main/java/net/salju/woodster/world/inventory/BookshelfInventoryMenu.java"
-        ]
-      }
-    }
-  ],
+  "mod_elements": [],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
       "itemGroup.woodster": "Woodster",
-      "block.woodster.oak_chiseled_bookshelf": "Oak Chiseled Bookshelf",
-      "gui.woodster.bookshelf": "Chiseled Bookshelf",
+      "block.minecraft.chiseled_bookshelf": "Oak Chiseled Bookshelf",
       "block.woodster.dark_oak_chiseled_bookshelf": "Dark Oak Chiseled Bookshelf",
       "block.woodster.warped_bookshelf": "Warped Bookshelf",
+      "block.woodster.bamboo_bookshelf": "Bamboo Bookshelf",
       "block.woodster.spruce_bookshelf": "Spruce Bookshelf",
       "block.woodster.jungle_ladder": "Jungle Ladder",
-      "block.woodster.dark_oak_ladder": "Dark Oak Ladder",
       "block.minecraft.bookshelf": "Oak Bookshelf",
+      "block.woodster.dark_oak_ladder": "Dark Oak Ladder",
+      "block.woodster.bamboo_ladder": "Bamboo Ladder",
       "block.woodster.mangrove_bookshelf": "Mangrove Bookshelf",
       "block.woodster.mangrove_chiseled_bookshelf": "Mangrove Chiseled Bookshelf",
       "block.woodster.mangrove_ladder": "Mangrove Ladder",
+      "block.woodster.bamboo_chiseled_bookshelf": "Bamboo Chiseled Bookshelf",
       "block.woodster.spruce_ladder": "Spruce Ladder",
       "block.woodster.birch_chiseled_bookshelf": "Birch Chiseled Bookshelf",
       "block.woodster.crimson_ladder": "Crimson Ladder",
       "block.woodster.dark_oak_bookshelf": "Dark Oak Bookshelf",
       "block.woodster.acacia_ladder": "Acacia Ladder",
       "block.woodster.warped_ladder": "Warped Ladder",
+      "block_type.woodster.chiseled_bookshelf": "%s Chiseled Bookshelf",
       "block.woodster.warped_chiseled_bookshelf": "Warped Chiseled Bookshelf",
       "block.woodster.birch_bookshelf": "Birch Bookshelf",
+      "block_type.woodster.ladder": "%s Ladder",
+      "block.woodster.cherry_ladder": "Cherry Ladder",
       "block.woodster.birch_ladder": "Birch Ladder",
       "block.woodster.acacia_bookshelf": "Acacia Bookshelf",
+      "block_type.woodster.bookshelf": "%s Bookshelf",
       "block.woodster.jungle_bookshelf": "Jungle Bookshelf",
+      "block.woodster.cherry_bookshelf": "Cherry Bookshelf",
       "block.woodster.crimson_chiseled_bookshelf": "Crimson Chiseled Bookshelf",
       "block.woodster.acacia_chiseled_bookshelf": "Acacia Chiseled Bookshelf",
       "block.woodster.crimson_bookshelf": "Crimson Bookshelf",
+      "block.woodster.cherry_chiseled_bookshelf": "Cherry Chiseled Bookshelf",
       "block.woodster.jungle_chiseled_bookshelf": "Jungle Chiseled Bookshelf",
       "block.woodster.spruce_chiseled_bookshelf": "Spruce Chiseled Bookshelf",
       "block.minecraft.ladder": "Oak Ladder"
@@ -56,20 +50,21 @@
   "workspaceSettings": {
     "modid": "woodster",
     "modName": "Woodster",
-    "version": "1.0.0",
+    "version": "1.4.0",
+    "description": "Books \u0026 Ladders",
     "author": "Jusey1",
     "websiteURL": "https://discord.gg/s7QaYGUzZU",
-    "license": "Academic Free License v3.0",
+    "license": "MIT License",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.19.2",
+    "currentGenerator": "forge-1.20.1",
     "credits": "Jusey1, Burack",
     "modElementsPackage": "net.salju.woodster",
     "lockBaseModFiles": true
   },
-  "mcreatorVersion": 202300217118
+  "mcreatorVersion": 202300223515
 }
