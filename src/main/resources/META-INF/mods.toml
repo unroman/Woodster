@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[47,)"
 license="MIT License"
 
 [[mods]]
 modId="woodster"
-version="1.3.1"
+version="1.4.0"
 displayName="Woodster"
 credits="Jusey1, Burack"
 displayURL="https://discord.gg/s7QaYGUzZU"
@@ -14,7 +14,7 @@ description="Books & Ladders"
 [[dependencies.woodster]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.4]"
+    versionRange="[1.20.1]"
     ordering="NONE"
     side="BOTH"
 
