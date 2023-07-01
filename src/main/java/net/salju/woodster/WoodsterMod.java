@@ -16,6 +16,7 @@ public class WoodsterMod {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		WoodsterBlocks.REGISTRY.register(bus);
 		WoodsterItems.REGISTRY.register(bus);
+		WoodsterTabs.REGISTRY.register(bus);
 		WoodsterBlockEntities.REGISTRY.register(bus);
 	}
 }

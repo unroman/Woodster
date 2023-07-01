@@ -22,23 +22,10 @@ public class ChiseledBookshelfBlock extends ChiseledBookShelfBlock {
 	public static int getBooks(BlockEntity target) {
 		int books = 0;
 		if (target instanceof ChiseledBookShelfBlockEntity be) {
-			if (!(be.getItem(0).isEmpty())) {
-				books = (books + 1);
-			}
-			if (!(be.getItem(1).isEmpty())) {
-				books = (books + 1);
-			}
-			if (!(be.getItem(2).isEmpty())) {
-				books = (books + 1);
-			}
-			if (!(be.getItem(3).isEmpty())) {
-				books = (books + 1);
-			}
-			if (!(be.getItem(4).isEmpty())) {
-				books = (books + 1);
-			}
-			if (!(be.getItem(5).isEmpty())) {
-				books = (books + 1);
+			for (int i = 0; i < 6; ++i) {
+				if (!(be.getItem(i).isEmpty())) {
+					books = (books + 1);
+				}
 			}
 		}
 		return books;
